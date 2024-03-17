@@ -19,7 +19,7 @@ class Titulaire implements Comparable<Compte>{
 	{
 		for(Compte c:MesComptes)
 		{
-			c.toString();
+			System.out.println(c.toString());
 		}
 	}
 	public void retraitTUT(int num,double m)
@@ -44,20 +44,25 @@ class Titulaire implements Comparable<Compte>{
 		}
 		
 	}
-	public double maxSolde()
-	{
-		Compte cmax = null;
-		double x = 0;
-		for(Compte c:MesComptes)
-		{
-			if(this.compareTo(cmax,c)==-1)
-			{
-				cmax=c;
-				x=cmax.solde;
-			}
-		}
-		return x;
+	public double maxSolde() {
+
+	    Compte cmax = null;
+
+	    for (Compte c : MesComptes) {
+	        if (cmax == null || c.solde > cmax.solde) {
+	            cmax = c;
+	        }
+	    }
+
+	    if (cmax != null) {
+	        System.out.println("Le solde maximum pour " + nom + " est " + cmax.solde + " sur le compte numéro " + cmax.numero);
+	        return cmax.solde;
+	    } else {
+	        System.out.println("Erreur");
+	        return 0;
+	    }
 	}
+
 	
 	public int compareTo(Compte o1,Compte o2) {
 		if(o1.solde>o2.solde)
@@ -71,8 +76,6 @@ class Titulaire implements Comparable<Compte>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	
-	
+		
 	
 }

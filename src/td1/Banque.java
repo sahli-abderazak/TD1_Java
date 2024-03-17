@@ -1,6 +1,7 @@
 package td1;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Banque {
@@ -26,5 +27,8 @@ public class Banque {
 			System.out.println(c.toString());
 		}
 	}
+	 public void trierComptes() {
+	        Collections.sort(Comptes);
+	    }
 }
 
